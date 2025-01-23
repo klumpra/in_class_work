@@ -56,6 +56,7 @@ namespace Cafe
             WriteLine($"{"Subtotal:",-30}{subTotal,10:C}");
             WriteLine($"{"Sales Tax (8%):",-30}{salesTax,10:C}");
             WriteLine($"{"Final Total:",-30}{finalTotal,10:C}");
+
         }
     }
 }
