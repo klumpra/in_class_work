@@ -6,27 +6,30 @@
         {
             Console.WriteLine("Hey. This is fun. Wanna see?");
         }
-        static int ComputeSum(int num1, int num2, int num3)
+        static int ComputeSum(params int[] nums)
         {
-            int result;   //local variable
-            result = num1 + num2 + num3;
+            int result = 0;   //local variable
+            foreach (int num in nums)
+            {
+                result = result + num;
+            }
             return result;
         }
-        static int ComputeProd(int num1, int num2, int num3)
+        static int ComputeProd(params int[] nums)
         {
-            return num1 * num2 * num3;
+            int result = 1;
+            foreach (int num in nums)
+            {
+                result = result * num;
+            }
+            return result;
         }
         static void Main(string[] args)
         {
             PrintWelcome();
-            int num1, num2, num3;
-            Random rnd = new Random();
-            num1 = rnd.Next(1, 10);
-            num2 = rnd.Next(1, 10);
-            num3 = rnd.Next(1, 10);
             int sum, prod;
-            sum = ComputeSum(num1, num2, num3);
-            prod = ComputeProd(num1, num2, num3);
+            sum = ComputeSum(7, 3, 5, 8, 2);
+            prod = ComputeProd(1, 5);
             Console.WriteLine($"The sum is {sum}, and the prod is {prod}.");
         }
     }
