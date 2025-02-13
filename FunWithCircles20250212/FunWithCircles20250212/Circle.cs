@@ -59,7 +59,7 @@ namespace FunWithCircles20250212
         // add a ToString function to represent a circle object as a string
         public override string ToString()
         {
-            return $"{X,0:F2}\t{Y,0:F2}\t{Radius,0:F2}";
+            return $"{X,0:F2}\t{Y,0:F2}\t{Radius,0:F2}\t{CalculateArea(),0:F2}\t{CalculatePerim(),0:F2}";
         }
     }
 }
