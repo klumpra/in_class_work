@@ -34,6 +34,14 @@ namespace ShapeExample20250219
             // shapes.Add(new Circle(4, 2, 3));
             PrintShapesToScreen(shapes);
             PrintAreasAndPerimeters(shapes);
+            Random rnd = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                customCircle.RandomMove(rnd);
+                customRectangle.RandomMove(rnd);
+                WriteLine(customCircle);
+                WriteLine(customRectangle);
+            }
 
             /*
             WriteLine("Here are your circles:");
