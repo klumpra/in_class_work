@@ -196,16 +196,6 @@ namespace GuitarWorld.Views
             PerformLayout();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to exit?", "Confirmation",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
         #endregion
 
         private Panel panControls;

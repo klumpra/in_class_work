@@ -31,7 +31,15 @@ namespace GuitarWorld.Views
                 MessageBox.Show("You entered incorrect values.", "Error");
             }
         }
-
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to exit?", "Confirmation",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
         private void ClearEntries()
         {
             txtName.Text = string.Empty;
