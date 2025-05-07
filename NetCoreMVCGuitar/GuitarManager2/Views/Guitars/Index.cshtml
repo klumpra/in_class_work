@@ -1,0 +1,55 @@
+﻿@model List<Guitar>
+
+<h1>Guitars</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Manufacturer
+            </th>
+            <th>
+                Model name
+            </th>
+            <th>
+                Year Made
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null) {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Manufacturer
+                </td>
+                <td>
+                    @item.ModelName
+                </td>
+                <td>
+                    @item.YearMade
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+                </tr>
+            }
+
+        } else
+        {
+            <h1>No guitars yet</h1>
+        }
+    </tbody>
+</table>

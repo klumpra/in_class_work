@@ -1,0 +1,51 @@
+﻿@model RectangleModel
+@{
+    ViewData["Title"] = "Home Page";
+    float value = 0f;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Calculate Area and Perimeter</h1>
+    <p>This application calculates area and perimeter of a rectangle.</p>
+    <form asp-controller ="Home" asp-action="Index" method="Post">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <label asp-for="Length" class="form-label">Length</label>
+            <input asp-for="Length" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Width" class="form-label">Width</label>
+            <input asp-for="Width" class="form-control" />
+        </div>
+        @{
+            string areaStatus = "checked";
+            string perimStatus = "";
+            if (Model != null) { // if data has already been posted - then an Model object will exist
+                if (Model.ToCalculate == "area") {
+                    areaStatus = "checked";
+                    perimStatus = "";
+                } else {
+                    areaStatus = "";
+                    perimStatus = "checked";
+                }
+            }
+        }
+        <div class="form-group">
+            <input type="radio" name="ToCalculate" value="area" @areaStatus/>Area
+            <input type="radio" name="ToCalculate" value="perim" @perimStatus />Perimeter
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+            <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Clear</a> <!-- executes the get version of Index() -->
+        </div>
+        @{
+            if (Model != null) {
+                value = Model.Measure;
+            }
+        }
+    </form>
+    <div class="form-group">
+        <label class="form-label" for="Measure">Measure</label>
+        <input class="form-control" value="@value" readonly/>
+    </div>
+</div>
